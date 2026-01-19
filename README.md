@@ -35,6 +35,7 @@ sudo modprobe snd-dummy
 👉 Thấy Dummy là OK. Nếu không thì chuyển sang 2.4.
 ## 2.4- Dùng ALSA NULL
 👉 Phù hợp Cloud / VM / Robot headless
+
 👉 OM1 vẫn chạy BÌNH THƯỜNG
 
 1️⃣ Tạo cấu hình ALSA null
@@ -57,6 +58,7 @@ Lưu lại.
 aplay -l
 ```
 👉 Có thể vẫn báo no soundcards found
+
 ⚠️ KHÔNG SAO – đây là bình thường
 
 Test:
@@ -106,4 +108,38 @@ pip install uv
 git submodule update --init
 uv venv
 ```
+## 4- THANH TOÁN VÀ TẠO KHÓA OPENMIND API
+→ Truy cập vào https://portal.openmind.org/ rồi đăng nhập bằng tài khoản Google.
+
+→ Ở bảng điều khiển, bấm Purchase Credits rồi thanh toán bằng cách kết nối ví. Khoảng 5-10 USDC mạng Base.
+
+→ Khi thanh toán xong, bấm Create API Key rồi copy đoạn khóa này, lưu vào file word hoặc notepad...để sử dụng ở bước 5.
+
+## 5- CẤU HÌNH VÀ TIẾN HÀNH CHẠY NODE OM1
+
+1️⃣ Thiết lập biến môi trường
+```bash
+cp env.example .env
+nano .env
+```
+Nhập vào khóa API ở bước 4, rồi bấm CTRL + X → bấm Y → bấm ENTER
+
+2️⃣ Chạy node OM1
+```bash
+cd ~/OM1
+source .venv/bin/activate
+```
+```bash
+uv run src/run.py conversation
+```
+➡ Khi xuất hiện các dòng chữ bên dưới đây thì node đang chạy thành công.
+```bash
+INFO - Falling back to network discovery.
+INFO - Zenoh client opened with network discovery
+INFO - LLM initialized with function schemas.
+INFO - Starting OM1 with standard configuration: conversation
+```
+➡ Còn nếu xuất hiện lỗi “401 Insufficient Balance” thì có thể bạn chưa thanh toán API hoặc là không đủ phí để thực hiện.
+
+## 6- CHẠY OM1 DẠNG SERVICE
 ➡ còn tiếp >>>>
