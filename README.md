@@ -1,5 +1,11 @@
 # Triển khai Robot trên OpenMind Fabric Linux
+
+<img width="875" height="625" alt="Nguồn ảnh: https://openmind.org/platform" src="https://github.com/user-attachments/assets/ade17711-2f15-42f0-b6e9-5eea4f4500c6" />
+
+Nguồn ảnh: openmind.org/platform
+
 Hướng dẫn này giúp chạy node openmind với chi phí thấp nhất (có thể). Triển khai 1 node OpenMind OM1 trên Google Cloud VM (GCE), viết theo kiểu step by step, phù hợp với người mới. Sử dụng Ubuntu 22.04 LTS.
+
 Mục tiêu: Node chạy ổn định, không lỗi PEP 668, không lỗi audio, không lỗi git
 ## 1- TẠO VM TRÊN GOOGLE CLOUD
 - Truy cập https://console.cloud.google.com
@@ -67,6 +73,8 @@ aplay /usr/share/sounds/alsa/Front_Center.wav
 ```
 ➡ Không báo lỗi = OK
 
+<img width="817" height="157" alt="image" src="https://github.com/user-attachments/assets/beb9ce75-a101-4f14-b46c-f466ce1d20a1" />
+
 3️⃣ Export biến môi trường cho OM1
 ```bash
 export ALSA_PCM_CARD=0
@@ -102,16 +110,22 @@ pip install --upgrade pip setuptools wheel
 git clone https://github.com/openmind/OM1.git
 cd OM1
 ```
+<img width="748" height="300" alt="image" src="https://github.com/user-attachments/assets/d92f41f6-4058-4ae2-b6d8-4c75efc88c3d" />
+
 2️⃣ Thiết lập UV, Git và biến môi trường
 ```bash
 pip install uv
 git submodule update --init
 uv venv
 ```
+<img width="808" height="299" alt="image" src="https://github.com/user-attachments/assets/70a27d7b-9fed-47ca-ab15-d1fff38b3276" />
+
 ## 4- THANH TOÁN VÀ TẠO KHÓA OPENMIND API
 → Truy cập vào https://portal.openmind.org/ rồi đăng nhập bằng tài khoản Google.
 
 → Ở bảng điều khiển, bấm Purchase Credits rồi thanh toán bằng cách kết nối ví. Khoảng 5-10 USDC mạng Base.
+
+<img width="1545" height="656" alt="image" src="https://github.com/user-attachments/assets/744a350e-ac70-4164-8a0f-f2884fca6eb6" />
 
 → Khi thanh toán xong, bấm Create API Key rồi copy đoạn khóa này, lưu vào file word hoặc notepad...để sử dụng ở bước 5.
 
